@@ -17,6 +17,16 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
+        
+        binding.button.setOnClickListener(view -> {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragment_container_view, LegFragment.class, null)
+                    .addToBackStack(null)
+                    .setReorderingAllowed(true)
+                    .commit();
+        });
+
+
 
         return binding.getRoot();
     }
