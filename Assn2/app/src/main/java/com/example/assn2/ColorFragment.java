@@ -11,24 +11,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.assn2.databinding.FragmentLegBinding;
+import com.example.assn2.databinding.FragmentColorBinding;
 
 
-public class LegFragment extends Fragment {
+public class ColorFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentLegBinding binding = FragmentLegBinding.inflate(inflater, container, false);
+        FragmentColorBinding binding = FragmentColorBinding.inflate(inflater, container, false);
 
         binding.noButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_sizeFragment);
+                    .navigate(R.id.action_colorFragment_to_cuteFragment);
         });
-
         binding.yesButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_squishFragment);
+                    .navigate(R.id.action_colorFragment_to_squishFragment);
         });
         return binding.getRoot();
     }

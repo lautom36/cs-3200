@@ -11,25 +11,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.assn2.databinding.FragmentLegBinding;
+import com.example.assn2.databinding.FragmentSquishBinding;
 
 
-public class LegFragment extends Fragment {
-
+public class SquishFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentLegBinding binding = FragmentLegBinding.inflate(inflater, container, false);
-
-        binding.noButton.setOnClickListener(view -> {
-            NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_sizeFragment);
-        });
+        FragmentSquishBinding binding = FragmentSquishBinding.inflate(inflater, container, false);
 
         binding.yesButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_squishFragment);
+                    .navigate(R.id.action_squishFragment_to_legFragment);
         });
+
         return binding.getRoot();
     }
+
+
+
 }

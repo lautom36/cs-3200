@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.assn2.databinding.FragmentHomeBinding;
 
@@ -17,13 +18,10 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         FragmentHomeBinding binding = FragmentHomeBinding.inflate(inflater, container, false);
-        
+
         binding.button.setOnClickListener(view -> {
-            getActivity().getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.fragment_container_view, LegFragment.class, null)
-                    .addToBackStack(null)
-                    .setReorderingAllowed(true)
-                    .commit();
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_homeFragment_to_legFragment);
         });
 
 

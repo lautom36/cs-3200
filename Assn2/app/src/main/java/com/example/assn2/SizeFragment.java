@@ -11,24 +11,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.assn2.databinding.FragmentLegBinding;
+import com.example.assn2.databinding.FragmentSizeBinding;
 
 
-public class LegFragment extends Fragment {
+public class SizeFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        FragmentLegBinding binding = FragmentLegBinding.inflate(inflater, container, false);
+        FragmentSizeBinding binding = FragmentSizeBinding.inflate(inflater, container, false);
 
         binding.noButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_sizeFragment);
+                    .navigate(R.id.action_sizeFragment_to_smellFragment);
         });
 
         binding.yesButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_legFragment_to_squishFragment);
+                    .navigate(R.id.action_sizeFragment_to_squishFragment);
         });
         return binding.getRoot();
     }

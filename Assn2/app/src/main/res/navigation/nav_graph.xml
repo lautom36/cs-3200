@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.assn2.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_legFragment"
+            app:destination="@id/legFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/legFragment"
+        android:name="com.example.assn2.LegFragment"
+        android:label="fragment_leg"
+        tools:layout="@layout/fragment_leg" >
+        <action
+            android:id="@+id/action_legFragment_to_sizeFragment"
+            app:destination="@id/sizeFragment" />
+        <action
+            android:id="@+id/action_legFragment_to_squishFragment"
+            app:destination="@id/squishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="com.example.assn2.ColorFragment"
+        android:label="fragment_color"
+        tools:layout="@layout/fragment_color" >
+        <action
+            android:id="@+id/action_colorFragment_to_cuteFragment"
+            app:destination="@id/cuteFragment" />
+        <action
+            android:id="@+id/action_colorFragment_to_squishFragment"
+            app:destination="@id/squishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cuteFragment"
+        android:name="com.example.assn2.CuteFragment"
+        android:label="fragment_cute"
+        tools:layout="@layout/fragment_cute" >
+        <action
+            android:id="@+id/action_cuteFragment_to_squishFragment"
+            app:destination="@id/squishFragment" />
+        <action
+            android:id="@+id/action_cuteFragment_to_notSquishFragment"
+            app:destination="@id/notSquishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notSquishFragment"
+        android:name="com.example.assn2.NotSquishFragment"
+        android:label="fragment_not_squish"
+        tools:layout="@layout/fragment_not_squish" >
+        <action
+            android:id="@+id/action_notSquishFragment_to_legFragment"
+            app:destination="@id/legFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/squishFragment"
+        android:name="com.example.assn2.SquishFragment"
+        android:label="fragment_squish"
+        tools:layout="@layout/fragment_squish" >
+        <action
+            android:id="@+id/action_squishFragment_to_legFragment"
+            app:destination="@id/legFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sizeFragment"
+        android:name="com.example.assn2.SizeFragment"
+        android:label="fragment_size"
+        tools:layout="@layout/fragment_size" >
+        <action
+            android:id="@+id/action_sizeFragment_to_smellFragment"
+            app:destination="@id/smellFragment" />
+        <action
+            android:id="@+id/action_sizeFragment_to_squishFragment"
+            app:destination="@id/squishFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/smellFragment"
+        android:name="com.example.assn2.SmellFragment"
+        android:label="fragment_smell"
+        tools:layout="@layout/fragment_smell" >
+        <action
+            android:id="@+id/action_smellFragment_to_colorFragment"
+            app:destination="@id/colorFragment" />
+        <action
+            android:id="@+id/action_smellFragment_to_squishFragment"
+            app:destination="@id/squishFragment" />
+    </fragment>
+</navigation>
