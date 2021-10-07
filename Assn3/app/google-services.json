@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "991537160935",
+    "project_id": "cs3200-assn3",
+    "storage_bucket": "cs3200-assn3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991537160935:android:d56a6324a0b4e8ee1e7842",
+        "android_client_info": {
+          "package_name": "com.example.assn3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "991537160935-jmj85594rpd3v3urou5r655k3eg9qej5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACikcf78XFTCpSIZcwc4Dgu3pp_MchS94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "991537160935-jmj85594rpd3v3urou5r655k3eg9qej5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
