@@ -40,6 +40,10 @@ public class UserViewModel extends ViewModel{
             errorMessage.postValue("Password cannot be empty");
             return;
         }
+        if (!email.contains("@") || !email.contains(".com")){
+            errorMessage.postValue("Not a valid email");
+            return;
+        }
 
         repository.signIn(
                 email,
@@ -48,7 +52,7 @@ public class UserViewModel extends ViewModel{
         );
     }
 
-    public void signUp(String email, String password) {
+    public void signUp(String email, String password, String confirmEmail, String confirmPassword) {
         errorMessage.postValue("");
         if (email == null || email.isEmpty()) {
             errorMessage.postValue("Email cannot be empty");
@@ -58,6 +62,23 @@ public class UserViewModel extends ViewModel{
             errorMessage.postValue("Password cannot be empty");
             return;
         }
+        if (!email.contains("@") || !email.contains(".com")){
+            errorMessage.postValue("Not a valid email");
+            return;
+        }
+        if (!email.equals(confirmEmail) && !password.equals(confirmPassword)){
+            errorMessage.postValue("Emails must match");
+            return;
+        }
+        if (!email.equals(confirmEmail)){
+            errorMessage.postValue("Emails must match");
+            return;
+        }
+        if (!password.equals(confirmPassword)){
+            errorMessage.postValue("Passwords must match");
+            return;
+        }
+
         repository.signUp(
                 email,
                 password,

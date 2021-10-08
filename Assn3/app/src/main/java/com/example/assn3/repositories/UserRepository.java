@@ -1,5 +1,7 @@
 package com.example.assn3.repositories;
 
+import android.util.Log;
+
 import com.example.assn3.models.User;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,9 +41,13 @@ public class UserRepository {
     public void signIn(String email, String password, OnFailureListener onFailureListener ) {
         auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (!task.isSuccessful()) {
+                Log.d("UserRepository", "signin: no success");
                 System.out.println(task.getException().getMessage());
                 onFailureListener.onFailure(task.getException());
                 // handle the error
+            }
+            else {
+                Log.d("UserRepository", "signin: success");
             }
         });
     }
@@ -49,10 +55,15 @@ public class UserRepository {
     public void signUp(String email, String password, OnFailureListener onFailureListener) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
             if (!task.isSuccessful()) {
+                Log.d("UserRepository", "signup: no success");
                 System.out.println(task.getException().getMessage());
                 onFailureListener.onFailure(task.getException());
                 // handle the error
             }
+            else {
+                Log.d("UserRepository", "signup: success");
+            }
+
         });
     }
 

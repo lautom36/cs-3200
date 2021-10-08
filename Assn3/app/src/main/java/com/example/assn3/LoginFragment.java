@@ -33,21 +33,19 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        viewModel.getErrorMessage().observe(getViewLifecycleOwner(), message -> {
+            binding.errorMsg2.setText(message);
+        });
+
         // if login button is pressed
         binding.loginButton.setOnClickListener(view -> {
+            Log.d("LoginFragment", "login button pressed");
             // TODO: validate the strings
             viewModel.signIn(
                     binding.editTextTextEmailAddress.getText().toString(),
                     binding.editTextTextPassword.getText().toString());
         });
 
-        // if logged in go to the main screen
-        viewModel.getUser().observe(getViewLifecycleOwner(), user -> {
-            if (user != null) {
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_loginFragment2_to_mainFragment);
-            }
-        });
 
         binding.signupButton.setOnClickListener(view -> {
             NavHostFragment.findNavController(this)
