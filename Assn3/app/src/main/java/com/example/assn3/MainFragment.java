@@ -12,8 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.assn3.databinding.FragmentMainBinding;
-import com.example.assn3.models.User;
-import com.example.assn3.repositories.UserRepository;
 import com.example.assn3.viewmodels.UserViewModel;
 
 
@@ -30,6 +28,12 @@ public class MainFragment extends Fragment {
             NavHostFragment.findNavController(this)
                     .navigate(R.id.action_mainFragment_to_loginFragment2);
             Log.d("LoginFragment", "signup button pressed");
+        });
+
+        binding.fab.setOnClickListener(view -> {
+            NavHostFragment.findNavController(this)
+                    .navigate(R.id.action_mainFragment_to_noteFragment);
+            String i = String.valueOf(1);
         });
 
         return binding.getRoot();

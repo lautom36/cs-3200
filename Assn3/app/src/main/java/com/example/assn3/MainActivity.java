@@ -1,12 +1,14 @@
 package com.example.assn3;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.example.assn3.databinding.ActivityMainBinding;
-import com.example.assn3.viewmodels.UserViewModel;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,4 +18,5 @@ public class MainActivity extends AppCompatActivity {
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
     }
+
 }

@@ -3,7 +3,6 @@ package com.example.assn3.repositories;
 import android.util.Log;
 
 import com.example.assn3.models.User;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 

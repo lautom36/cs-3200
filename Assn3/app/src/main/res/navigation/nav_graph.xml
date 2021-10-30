@@ -33,5 +33,17 @@
         <action
             android:id="@+id/action_mainFragment_to_loginFragment2"
             app:destination="@id/loginFragment2" />
+        <action
+            android:id="@+id/action_mainFragment_to_noteFragment"
+            app:destination="@id/noteFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noteFragment"
+        android:name="com.example.assn3.NoteFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_note" >
+        <action
+            android:id="@+id/action_noteFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

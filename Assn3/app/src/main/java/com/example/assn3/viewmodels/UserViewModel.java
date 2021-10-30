@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.assn3.models.User;
 import com.example.assn3.repositories.UserRepository;
-import com.google.firebase.auth.FirebaseAuth;
 
 public class UserViewModel extends ViewModel{
     UserRepository repository;
