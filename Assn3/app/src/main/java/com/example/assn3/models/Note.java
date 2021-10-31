@@ -38,7 +38,7 @@ public class Note {
     }
 
     public long getDateCreated() {
-        return dateCreated;
+         return dateCreated;
     }
 
 }
