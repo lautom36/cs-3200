@@ -65,5 +65,3 @@ public class MainFragment extends Fragment {
         return binding.getRoot();
     }
 }
-
-// ToDo:    reverse the list of notes
