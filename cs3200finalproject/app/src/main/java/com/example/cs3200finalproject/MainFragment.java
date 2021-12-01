@@ -34,9 +34,10 @@ public class MainFragment extends Fragment {
         Log.d(tag, "started HomeFragment");
         FragmentMainBinding binding = FragmentMainBinding.inflate(inflater, container, false);
 
-        TransactionViewModel transactionViewModel = new ViewModelProvider(getActivity()).get(TransactionViewModel.class);
-        UserViewModel userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
+        TransactionViewModel transactionViewModel = new ViewModelProvider(getActivity())
+                .get(TransactionViewModel.class);
 
+        UserViewModel userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
 
 
         userViewModel.getUser().observe(getViewLifecycleOwner(), (user) -> {
