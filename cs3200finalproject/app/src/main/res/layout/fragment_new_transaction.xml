@@ -53,20 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/TransactionDescription"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:hint="Enter a short description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TransactionAmount" />
-
     <Button
         android:id="@+id/newTransactionSaveButton"
         android:layout_width="wrap_content"
@@ -91,10 +77,10 @@
         android:id="@+id/newTransactionErrorMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TransactionDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/newTransactionDescripton" />
 
     <ImageView
         android:id="@+id/newTransactionImageView"
@@ -105,5 +91,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/newTransactionErrorMessage"
         tools:src="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/newTransactionDescripton"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:ems="10"
+        android:hint="Enter a short desciption"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TransactionAmount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

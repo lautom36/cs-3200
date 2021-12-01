@@ -34,10 +34,12 @@ public class NewTransactionFragment extends Fragment {
         UserViewModel userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
 
         MyTransaction selectedTransaction = transactionViewModel.getSelectedTransaction().getValue();
+
+        // if a existing note is clicked, add values to the screen
         if (selectedTransaction != null) {
             binding.TransactionType.setPrompt(selectedTransaction.getType());
-            binding.TransactionAmount.setText((Integer) selectedTransaction.getAmount());
-            binding.TransactionDescription.setText(selectedTransaction.getDescription());
+            binding.TransactionAmount.setText(selectedTransaction.getAmount());
+            binding.newTransactionDescripton.setText(selectedTransaction.getDescription());
             binding.DeleteTransactionButton.setVisibility(View.VISIBLE);
             binding.DeleteTransactionButton.setOnClickListener(view -> {
                 transactionViewModel.deleteTransaction(selectedTransaction);
@@ -70,9 +72,17 @@ public class NewTransactionFragment extends Fragment {
                                 user.uid,
                                 binding.TransactionAmount.getText().toString(),
                                 binding.TransactionType.getSelectedItem().toString(),
-                                binding.TransactionDescription.getText().toString()
+                                binding.newTransactionDescripton.getText().toString()
+                        );
+                    } else {
+                        transactionViewModel.updateTransaction(
+                                selectedTransaction,
+                                binding.TransactionAmount.getText().toString(),
+                                binding.newTransactionDescripton.getText().toString(),
+                                binding.TransactionType.getSelectedItem().toString()
                         );
                     }
+
                 }
             });
         });

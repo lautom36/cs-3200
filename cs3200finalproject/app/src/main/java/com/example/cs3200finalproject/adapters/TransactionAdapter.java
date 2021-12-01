@@ -67,8 +67,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         DateFormat df = new SimpleDateFormat("MMMM d, yyyy");
         String formattedDate = df.format(date);
 
-        holder.getBinding().transListAmount.setText((Integer) transactions.get(position).getAmount());
+
+        holder.getBinding().transListAmount.setText("$ " + transactions.get(position).getAmount());
         holder.getBinding().transListDate.setText(formattedDate);
+        holder.getBinding().transListType.setText(transactions.get(position).getType());
         holder.itemView.setOnClickListener(view -> {
             this.listener.onSelected(transactions.get(position));
         });

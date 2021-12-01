@@ -6,7 +6,7 @@ import android.view.SurfaceControl;
 public class MyTransaction {
     private String userId;
     private Image image;
-    private int amount;
+    private String amount;
     private String type;
     private String description;
     private Long dateCreated;
@@ -21,11 +21,12 @@ public class MyTransaction {
 //        this.description = description;
 //    }
 
-    public MyTransaction (String userId, String  amount, String type, String description) {
+    public MyTransaction (String userId, String  amount, String type, String description, Long dateCreated) {
         this.userId = userId;
-        this.amount = Integer.parseInt(amount);
+        this.amount = amount;
         this.type = type;
         this.description = description;
+        this.dateCreated = dateCreated;
     }
 
     public String getUserId() {
@@ -36,7 +37,7 @@ public class MyTransaction {
         return dateCreated;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(String  amount) {
         this.amount = amount;
     }
 
@@ -52,7 +53,7 @@ public class MyTransaction {
         this.image = image;
     }
 
-    public Object getAmount() {
+    public String getAmount() {
         return amount;
     }
 

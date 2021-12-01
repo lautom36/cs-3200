@@ -72,7 +72,8 @@ public class TransactionViewModel extends ViewModel {
                 userId,
                 amount,
                 type,
-                description
+                description,
+                System.currentTimeMillis()
         );
         db
                 .collection(DB_NAME)
@@ -89,13 +90,12 @@ public class TransactionViewModel extends ViewModel {
                 });
     }
 
-    public void updateTransaction(MyTransaction transaction, int amount, String description, String type, Image image) {
+    public void updateTransaction(MyTransaction transaction, String  amount, String description, String type) {
         saving.setValue(true);
         Log.d(tag, "started update note");
         transaction.setAmount(amount);
         transaction.setDescription(description);
         transaction.setType(type);
-        transaction.setImage(image);
         db
                 .collection(DB_NAME)
                 .document(transaction.getUserId() + "_" + transaction.getDateCreated())
@@ -112,6 +112,29 @@ public class TransactionViewModel extends ViewModel {
                     saving.setValue(false);
                 });
     }
+//    public void updateTransaction(MyTransaction transaction, String  amount, String description, String type, Image image) {
+//        saving.setValue(true);
+//        Log.d(tag, "started update note");
+//        transaction.setAmount(amount);
+//        transaction.setDescription(description);
+//        transaction.setType(type);
+//        transaction.setImage(image);
+//        db
+//                .collection(DB_NAME)
+//                .document(transaction.getUserId() + "_" + transaction.getDateCreated())
+//                .set(transaction)
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        Log.d(tag, "task was successful");
+//                        int i = transactions.indexOf(transaction);
+//                        transactions.set(i, transaction);
+//                        sortList();
+//                    } else {
+//                        Log.d(tag, "task was not successful");
+//                    }
+//                    saving.setValue(false);
+//                });
+//    }
 
     public void sortList() {transactions.sort(Comparator.comparing(MyTransaction::getDateCreated).reversed());}
 
