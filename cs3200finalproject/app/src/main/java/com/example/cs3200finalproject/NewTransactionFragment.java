@@ -44,7 +44,12 @@ public class NewTransactionFragment extends Fragment {
             binding.DeleteTransactionButton.setOnClickListener(view -> {
                 transactionViewModel.deleteTransaction(selectedTransaction);
             });
+        } else {
+            binding.DeleteTransactionButton.setEnabled(false);
+            binding.DeleteTransactionButton.setVisibility(View.GONE);
         }
+
+
 
         transactionViewModel.getSaving().observe(getViewLifecycleOwner(), saving -> {
             if (!isSaving && saving) {

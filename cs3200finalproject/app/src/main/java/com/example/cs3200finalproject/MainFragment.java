@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -19,6 +20,7 @@ import com.example.cs3200finalproject.databinding.FragmentMainBinding;
 import com.example.cs3200finalproject.databinding.FragmentSigninBinding;
 import com.example.cs3200finalproject.models.User;
 import com.example.cs3200finalproject.viewmodels.TransactionViewModel;
+import com.example.cs3200finalproject.viewmodels.TypeViewModel;
 import com.example.cs3200finalproject.viewmodels.UserViewModel;
 import com.google.android.material.navigation.NavigationView;
 
@@ -60,26 +62,49 @@ public class MainFragment extends Fragment {
             toggle.syncState();
 
             navigationView.setNavigationItemSelectedListener(view -> {
+                switch (view.getItemId()) {
+                    case R.id.nav_pastTrans:
+                        NavHostFragment.findNavController(this)
+                                .navigate(R.id.action_mainFragment_to_pastTransactionFragment);
+                        transactionViewModel.setSelectedTransaction(null);
+                        break;
+                    case R.id.nav_newType:
+                        NavHostFragment.findNavController(this)
+                                .navigate(R.id.action_mainFragment_to_allTypesFragment);
+
+                        break;
+                    case R.id.nav_logout:
+                        UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
+                        viewModel.logout();
+
+                        NavHostFragment.findNavController(this)
+                                .navigate(R.id.action_mainFragment_to_signinFragment);
+                        Log.d(tag, "signout button pressed");
+                        break;
+                }
                 return true;
+
+
+
             });
             // action bar things ---------------------------------------
 
-            // logout button
-            binding.logoutButton.setOnClickListener(view -> {
-                UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
-                viewModel.logout();
-
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_mainFragment_to_signinFragment);
-                Log.d(tag, "signout button pressed");
-            });
-
-            // past transaction button
-            binding.PastTransactionButton.setOnClickListener(view -> {
-                NavHostFragment.findNavController(this)
-                        .navigate(R.id.action_mainFragment_to_pastTransactionFragment);
-                transactionViewModel.setSelectedTransaction(null);
-            });
+//            // logout button
+//            binding.logoutButton.setOnClickListener(view -> {
+//                UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
+//                viewModel.logout();
+//
+//                NavHostFragment.findNavController(this)
+//                        .navigate(R.id.action_mainFragment_to_signinFragment);
+//                Log.d(tag, "signout button pressed");
+//            });
+//
+//            // past transaction button
+//            binding.PastTransactionButton.setOnClickListener(view -> {
+//                NavHostFragment.findNavController(this)
+//                        .navigate(R.id.action_mainFragment_to_pastTransactionFragment);
+//                transactionViewModel.setSelectedTransaction(null);
+//            });
 
 
 

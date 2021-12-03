@@ -38,32 +38,6 @@ public class TransactionViewModel extends ViewModel {
         this.selectedTransaction.setValue(selectedTransaction);
     }
 
-//    public void createTransaction(String userId, Image image, int amount, String type, String description) {
-//        errorMessage.postValue("");
-//        saving.setValue(true);
-//        Log.d(tag, "started createTransaction");
-//        MyTransaction transaction = new MyTransaction(
-//                userId,
-//                image,
-//                amount,
-//                type,
-//                description
-//        );
-//        db
-//                .collection(DB_NAME)
-//                .document(transaction.getUserId() + "_" + transaction.getDateCreated())
-//                .set(transaction)
-//                .addOnCompleteListener(task -> {
-//                    if (task.isSuccessful()) {
-//                        Log.d(tag, "task was successful");
-//                        transactions.add(transaction);
-//                    } else {
-//                        Log.d(tag, "task was not successful");
-//                    }
-//                    saving.setValue(false);
-//                });
-//    }
-
     public void createTransaction(String userId, String amount, String type, String description) {
         errorMessage.postValue("");
         saving.setValue(true);
@@ -112,6 +86,38 @@ public class TransactionViewModel extends ViewModel {
                     saving.setValue(false);
                 });
     }
+
+// for storing image
+//
+// once i store an image ---------------------------------------------------------------------------------------
+//
+
+//    public void createTransaction(String userId, Image image, int amount, String type, String description) {
+//        errorMessage.postValue("");
+//        saving.setValue(true);
+//        Log.d(tag, "started createTransaction");
+//        MyTransaction transaction = new MyTransaction(
+//                userId,
+//                image,
+//                amount,
+//                type,
+//                description
+//        );
+//        db
+//                .collection(DB_NAME)
+//                .document(transaction.getUserId() + "_" + transaction.getDateCreated())
+//                .set(transaction)
+//                .addOnCompleteListener(task -> {
+//                    if (task.isSuccessful()) {
+//                        Log.d(tag, "task was successful");
+//                        transactions.add(transaction);
+//                    } else {
+//                        Log.d(tag, "task was not successful");
+//                    }
+//                    saving.setValue(false);
+//                });
+//    }
+
 //    public void updateTransaction(MyTransaction transaction, String  amount, String description, String type, Image image) {
 //        saving.setValue(true);
 //        Log.d(tag, "started update note");
@@ -135,6 +141,10 @@ public class TransactionViewModel extends ViewModel {
 //                    saving.setValue(false);
 //                });
 //    }
+
+//
+// once i store an image ---------------------------------------------------------------------------------------
+//
 
     public void sortList() {transactions.sort(Comparator.comparing(MyTransaction::getDateCreated).reversed());}
 

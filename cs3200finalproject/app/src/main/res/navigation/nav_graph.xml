@@ -37,6 +37,9 @@
         <action
             android:id="@+id/action_mainFragment_to_pastTransactionFragment"
             app:destination="@id/pastTransactionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_allTypesFragment"
+            app:destination="@id/allTypesFragment" />
     </fragment>
     <fragment
         android:id="@+id/newTransactionFragment"
@@ -55,5 +58,23 @@
         <action
             android:id="@+id/action_pastTransactionFragment_to_newTransactionFragment"
             app:destination="@id/newTransactionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newTypeFragment"
+        android:name="com.example.cs3200finalproject.NewTypeFragment"
+        android:label="fragment_new_type"
+        tools:layout="@layout/fragment_new_type" >
+        <action
+            android:id="@+id/action_newTypeFragment_to_allTypesFragment"
+            app:destination="@id/allTypesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/allTypesFragment"
+        android:name="com.example.cs3200finalproject.AllTypesFragment"
+        android:label="fragment_all_types"
+        tools:layout="@layout/fragment_all_types" >
+        <action
+            android:id="@+id/action_allTypesFragment_to_newTypeFragment"
+            app:destination="@id/newTypeFragment" />
     </fragment>
 </navigation>
