@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,9 +17,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.cs3200finalproject.adapters.TotalsAdapter;
 import com.example.cs3200finalproject.databinding.FragmentMainBinding;
 import com.example.cs3200finalproject.databinding.FragmentSigninBinding;
 import com.example.cs3200finalproject.models.User;
+import com.example.cs3200finalproject.viewmodels.TotalViewModel;
 import com.example.cs3200finalproject.viewmodels.TransactionViewModel;
 import com.example.cs3200finalproject.viewmodels.TypeViewModel;
 import com.example.cs3200finalproject.viewmodels.UserViewModel;
@@ -38,6 +41,12 @@ public class MainFragment extends Fragment {
 
         TransactionViewModel transactionViewModel = new ViewModelProvider(getActivity())
                 .get(TransactionViewModel.class);
+
+        TypeViewModel typeViewModel = new ViewModelProvider(getActivity())
+                .get(TypeViewModel.class);
+
+        TotalViewModel totalViewModel = new ViewModelProvider(getActivity())
+                .get(TotalViewModel.class);
 
         UserViewModel userViewModel = new ViewModelProvider(getActivity()).get(UserViewModel.class);
 
@@ -79,7 +88,7 @@ public class MainFragment extends Fragment {
 
                         NavHostFragment.findNavController(this)
                                 .navigate(R.id.action_mainFragment_to_signinFragment);
-                        Log.d(tag, "signout button pressed");
+                        Log.d(tag, "sign out button pressed");
                         break;
                 }
                 return true;
@@ -89,27 +98,12 @@ public class MainFragment extends Fragment {
             });
             // action bar things ---------------------------------------
 
-//            // logout button
-//            binding.logoutButton.setOnClickListener(view -> {
-//                UserViewModel viewModel = new ViewModelProvider(this).get(UserViewModel.class);
-//                viewModel.logout();
-//
-//                NavHostFragment.findNavController(this)
-//                        .navigate(R.id.action_mainFragment_to_signinFragment);
-//                Log.d(tag, "signout button pressed");
-//            });
-//
-//            // past transaction button
-//            binding.PastTransactionButton.setOnClickListener(view -> {
-//                NavHostFragment.findNavController(this)
-//                        .navigate(R.id.action_mainFragment_to_pastTransactionFragment);
-//                transactionViewModel.setSelectedTransaction(null);
-//            });
+            // display totals for each type
 
-
-
-
-
+            binding.totalsRecyclerView.setAdapter(
+                    new TotalsAdapter(totalViewModel.getTotals(user.uid))
+            );
+            binding.totalsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         });
 
         return binding.getRoot();

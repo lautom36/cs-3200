@@ -2,7 +2,6 @@ package com.example.cs3200finalproject;
 
 import android.os.Bundle;
 
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
@@ -43,7 +42,7 @@ public class AllTypesFragment extends Fragment {
 
             binding.typesRecyclerView.setAdapter(
                     new TypeAdapter(
-                            typeViewModel.getTransactions(user.uid),
+                            typeViewModel.getTypes(user.uid),
                             type -> {
                                 typeViewModel.setSelectedType(type);
                                 NavHostFragment.findNavController(this)

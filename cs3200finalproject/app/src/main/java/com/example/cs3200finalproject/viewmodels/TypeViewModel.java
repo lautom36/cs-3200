@@ -11,6 +11,7 @@ import com.example.cs3200finalproject.models.MyTypes;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class TypeViewModel extends ViewModel {
@@ -93,7 +94,7 @@ public class TypeViewModel extends ViewModel {
                 });
     }
 
-    public ObservableArrayList<MyTypes> getTransactions(String userId) {
+    public ObservableArrayList<MyTypes> getTypes(String userId) {
         if (types == null) {
             types = new ObservableArrayList<>();
             loadTypes(userId);
@@ -112,6 +113,7 @@ public class TypeViewModel extends ViewModel {
                         sortList();
                     }
                 });
+        Log.d(tag, "load types finished");
     }
 
 
