@@ -25,10 +25,11 @@ import com.example.cs3200finalproject.viewmodels.TotalViewModel;
 import com.example.cs3200finalproject.viewmodels.TransactionViewModel;
 import com.example.cs3200finalproject.viewmodels.TypeViewModel;
 import com.example.cs3200finalproject.viewmodels.UserViewModel;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainFragment extends Fragment {
-     String tag = "Mylog HomeFragment";
+     String tag = "Mylog MainFragment";
 
      DrawerLayout drawerLayout;
      NavigationView navigationView;
@@ -36,7 +37,7 @@ public class MainFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Log.d(tag, "started HomeFragment");
+        Log.d(tag, "started MainFragment");
         FragmentMainBinding binding = FragmentMainBinding.inflate(inflater, container, false);
 
         TransactionViewModel transactionViewModel = new ViewModelProvider(getActivity())
@@ -104,6 +105,11 @@ public class MainFragment extends Fragment {
                     new TotalsAdapter(totalViewModel.getTotals(user.uid))
             );
             binding.totalsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+            // ads
+            binding.bannerAdd.loadAd(
+                    new AdRequest.Builder().build()
+            );
         });
 
         return binding.getRoot();

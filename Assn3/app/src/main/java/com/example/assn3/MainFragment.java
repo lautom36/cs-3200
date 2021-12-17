@@ -58,10 +58,6 @@ public class MainFragment extends Fragment {
 
         });
 
-
-
-
-
         return binding.getRoot();
     }
 }

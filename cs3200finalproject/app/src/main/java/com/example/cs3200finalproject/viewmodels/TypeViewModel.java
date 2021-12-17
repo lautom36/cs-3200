@@ -16,7 +16,7 @@ import java.util.Comparator;
 
 public class TypeViewModel extends ViewModel {
     String DB_NAME = "types";
-    String tag = "MyLog TypeViewModel";
+    String tag = "Mylog TypeViewModel";
     ObservableArrayList<MyTypes> types;
     MutableLiveData<Boolean> saving = new MutableLiveData<>();
     MutableLiveData<MyTypes> selectedType = new MutableLiveData<>();
@@ -95,11 +95,12 @@ public class TypeViewModel extends ViewModel {
     }
 
     public ObservableArrayList<MyTypes> getTypes(String userId) {
+        Log.d(tag, "getTypes Started");
         if (types == null) {
             types = new ObservableArrayList<>();
             loadTypes(userId);
         }
-
+        Log.d(tag, "getTypes finished");
         return types;
     }
 

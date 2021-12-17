@@ -38,6 +38,7 @@ public class PastTransactionFragment extends Fragment {
                 transactionViewModel.setSelectedTransaction(null);
             });
 
+            // load transactions
             binding.transactions.setAdapter(
                     new TransactionAdapter(
                             transactionViewModel.getTransactions(user.uid),

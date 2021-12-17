@@ -3,6 +3,7 @@ package com.example.cs3200finalproject;
 import android.os.Bundle;
 
 import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
@@ -115,11 +116,15 @@ public class NewTransactionFragment extends Fragment {
             list.add("Fun");
 
             ObservableArrayList<MyTypes> test = typeViewModel.getTypes(user.uid);
+            //test.addOnListChangedCallback();
+
+
             Log.d(tag, "getTypes returned");
             for (MyTypes type : test) {
                 Log.d(tag, "added: "+ type.getType());
                 list.add(type.getType());
             }
+            Log.d(tag, "all types added");
             //create an adapter to describe how the items are displayed, adapters are used in several places in android.
             //There are multiple variations of this, but this is the basic variant.
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item, list);

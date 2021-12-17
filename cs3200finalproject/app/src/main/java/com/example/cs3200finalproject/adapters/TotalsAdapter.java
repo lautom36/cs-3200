@@ -61,7 +61,6 @@ public class TotalsAdapter extends RecyclerView.Adapter<TotalsAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         int tst = totals.get(position).getTotal();
         holder.getBinding().totalTypeSpent.setText("$" + totals.get(position).getTotal());
-        //holder.getBinding().totalTypeSpent.setText("heyo");
         holder.getBinding().typeSpent.setText(totals.get(position).getTotalType());
     }
 
